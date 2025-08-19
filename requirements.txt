@@ -1,0 +1,12 @@
+ipykernel
+matplotlib
+elephant==1.1.1
+numpy==1.26.4
+scipy==1.13.1
+mido
+librosa
+ipympl
+mne[hdf5]==1.10.1
+mat73
+pandas
+seaborn
