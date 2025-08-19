@@ -1,20 +1,19 @@
 # Code for: EEG Blink Artifacts Can Identify Read Music in Listening and Imagery
 
 Link to paper: TBD.
+<p>    
 <figure>
 <center><img src="./figures/ner-fig1.png" alt="Visual comparing eye blinks and saccades while reading a piece of music" width="300"></center>
-<figcaption>Fig. 1. <b>a</b> One chorale (CHOR-038) from the music imagery dataset’s sheet
-music, read by all subjects for 11 listening and 11 imagery trials per subject.
-<b>b–c</b> Top independent component analysis (ICA) component corresponding
-to eye blinks for Subject 1, extracted from 11 listening trials of reading
-CHOR-038. 
-<b>d–e</b> Second ICA component for the same subject, chorale and
-condition (CHOR-038, listening) showing diagonal saccades (eye sweeps)
-between the two lines of music, occurring near the end of the first line of
-9 bars, with expected duration = 9 × 2.4s = 21.6s).</figcaption>
+<em>Fig. 1. <b>a</b> One chorale (CHOR-038) from the music imagery dataset [1,2].
+<b>b–c</b> Top independent component analysis (ICA) component corresponding to eye blinks for Subject 1, extracted from 11 listening trials with synchronous reading of CHOR-038's sheet music. 
+<b>d–e</b> Second ICA component for the same subject, chorale and condition (CHOR-038, listening) showing diagonal saccades (eye sweeps) between the two lines of music, occurring near the end of the first line (expected duration = 9 bars × 2.4s/bar = 21.6s).
+</em>
 </figure>
+</p>
 
+Listen to [CHOR-038.wav](https://drive.google.com/file/d/1fVBrPdgQDu1J46OhiqiSHlXk-VOn8bHu/view?usp=drive_link) | remaining stimuli: [drive](https://drive.google.com/drive/folders/1VdsNiXKG1EHzkwo7qfuvNIP174QilhGl?usp=drive_link) | [Score.pdf](1-source-data/datasetCND_musicImagery/stimuli/midi/Score.pdf)
 
+# Overview
 This repo documents the steps needed to reproduce classification results for mapping eye-blinks during music reading to the piece of music being read.
 Our motivation is to explore whether eye blinks, given their relatively high amplitudes and ease of recording (compared to EEG activity from cortical sources), can still be useful -- especially in wearable contexts where actual EEG may be hard to capture.
 
