@@ -29,7 +29,23 @@ Depending on your preference for working with the source data and your preferred
 
 Alternatively, you could start with numpy arrays of extracted blinks by subject / condition that we include in this repo. As the dataset doesn't provide a ground truth for verifying extracted blinks, we attempt to manually inspect and accept/reject blink candidates from BLINKER. Still, given the uncertainty and subjective judging of blinks, we limit this preliminary analysis to subjects 1 through 8. The full dataset has N=21 professional musicians (our notebooks are able to load all .mat files into EEGLAB / MNE as needed for extending the analysis).
 
-With the blinks identified, we classify the read music within subject by calculating a neuronal spike-train distance, the Victor-Purpura metric [11], here applied to _blink trains_. We use the implementation from the Elephant pakage [12].
+In our analysis, we first identify blinks for the first 8 subjects in the dataset, and then try to identify which piece of music a subject was reading, separately for the listening or imagery trials (within subject).
+We compare blink timings across trials by calculating a neuronal spike-train distance, the Victor-Purpura metric [11], here applied to _blink trains_. 
+This method estimates the distance between two blink trains as the cost of converting one blink train (trial) into the other, where cost is associated with adding/removing blinks, and time-shifting the blinks.
+We use the Victor-Purpura implementation from Elephant [12].
+
+Of the 8 subjects analyzed for blinking activity, two subjects were dropped as blinks could not be identified for all of their trials.
+The remaining 6 subjects showed above chance-level decoding accuracy for identifying which of the four chorales was being read on a given (left-out) trial, by comparing its distance to 43 other trials for the same subject and condition (listening/imagery).
+We also swept a cost factor *q* associated with the Victor-Purpura distance, which can be thought of as scaling the cost associated with shifting the blinks (that is, it allows us to control how much to penalize time-shifts, relative to adding/dropping blinks as one blink train is morphed into the other).
+We see best accuracies when blinks are free to shift (q=0), that is, when only the total blink counts are considered across different chorales:
+<p>    
+<figure>
+<center><img src="./figures/all_sub_acc.svg" alt="Visual comparing eye blinks and saccades while reading a piece of music" width="300"></center>
+<em>Fig. 2. Intra-subject sight-read music classification accuracies using Victor-Purpura distance between blink times with one-trial left-out cross validation.
+Hyperparameter q (cost factor) was swept for each subject, with highest accuracies seen for q = 0Hz (equivalently 1/q= ∞ s), except for Subject 3 in the imagery condition.
+</em>
+</figure>
+</p>
 
 Here's a step-by-step breakdown of all the scripts and notebooks in this repo:
 
