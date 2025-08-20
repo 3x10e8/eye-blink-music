@@ -1,6 +1,7 @@
 # Code for: EEG Blink Artifacts Can Identify Read Music in Listening and Imagery
 
-Link to paper: TBD.
+Link to paper: [https://doi.org/10.48550/arXiv.2508.13807](https://doi.org/10.48550/arXiv.2508.13807)
+
 <p>    
 <figure>
 <center><img src="./figures/ner-fig1.png" alt="Visual comparing eye blinks and saccades while reading a piece of music" width="300"></center>
